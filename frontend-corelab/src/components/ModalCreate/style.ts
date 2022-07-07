@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { colors } from "../../assets/styles/colors";
+import back from '../../assets/icons/back.png'
 import theme from "../../assets/styles/theme";
 type ColorInput = {
   posit?: boolean;
@@ -7,20 +8,19 @@ type ColorInput = {
 };
 export const BoxModal = styled.section`
   ${({ theme }) => css`
-    background: ${theme.colors.baseBg1};
-    width: 330px;
-    height: 414px;
+    background: ${theme.colors.primaryColor};
+    width: 50%;
+    height: 20%;
     padding: 10px 20px 35px 20px;
     margin: 20px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
 
-    box-shadow: 3px 3px 6px 3px ${theme.colors.baseBg3};
+    align-items: center;
     color: ${theme.colors.textColor};
   `}
 `;
-
 
 export const BoxModalForm1 = styled.form<ColorInput>`
   display: flex;
@@ -28,30 +28,42 @@ export const BoxModalForm1 = styled.form<ColorInput>`
   margin-top: 2rem;
   width: 80%;
   flex-direction: column;
-  
+  background-color: ${theme.colors.shadowColor};
+  padding: 1.5rem;
+
   input {
-    background-color: ${(props) => {
-      if (props.posit) {
-        return colors.baseBg2;
-      } else {
-        return colors.baseBg3;
-      }
-    }};
-    border: ${(props) => {
-      if (props.posit) {
-        return `3px solid ${colors.baseBg2}`;
-      } else {
-        return `3px solid ${colors.baseBg3}`;
-      }
-    }};
-    border-radius: 4px;
+    border-radius: 2rem;
+    background-color: ${colors.primaryColor};
+    margin-bottom: 1rem;
     outline: none;
     width: 100%;
-    padding: 0.5rem 0 0.5rem 0.5rem;
+    padding: 0.5rem 0 0.5rem 1rem;
     font-family: ${theme.constants.bodyFontFamily};
-    font-size: ${theme.constants.bodyFontSize};
+    font-size: 1rem;
     color: ${theme.colors.textColor};
+  }
+  label {
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+    font-family: ${theme.constants.bodyFontFamily};
+    font-size: 0.8rem;
   }
 `;
 
+export const modalCreateBack = styled.div`
+${() => css`
+    display: flex;
+    align-self: flex-start;
 
+    img {
+      background: url(${back});
+      background-size: contain;
+      display: flex;
+      align-self: flex-start;
+      margin-top: 1rem;
+      padding: .5rem;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+  `}
+`

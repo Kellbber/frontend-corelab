@@ -2,9 +2,6 @@ import styled, { css } from "styled-components";
 import search from "../../assets/icons/search.png";
 import equalizer from "../../assets/icons/equalizer.png";
 
-type customStyle = {
-  estilo: boolean;
-};
 export const Home = styled.section`
   ${({ theme }) => css`
     background: ${theme.colors.shadowColor};
@@ -26,7 +23,7 @@ export const HomeContent = styled.main`
   `}
 `;
 export const HomeContentSearch = styled.div`
-  ${({ theme }) => css`
+  ${() => css`
     width: 100%;
     display: flex;
   `}
