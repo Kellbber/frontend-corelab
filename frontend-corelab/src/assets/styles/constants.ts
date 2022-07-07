@@ -4,6 +4,6 @@ export const constants = {
   headingFontWeight: "140%",
 
   bodyFontFamily: "Montserrat",
-  bodyFontSize: "20px",
+  bodyFontSize: "28px",
   bodyFontWeight: "140%",
 };

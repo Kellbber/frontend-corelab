@@ -7,6 +7,6 @@ const theme ={
     colors,
     constants,
     mixins
-}
+}as const;
 
 export default theme;
