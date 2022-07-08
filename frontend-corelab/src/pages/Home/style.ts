@@ -85,3 +85,11 @@ export const HomeButton = styled.div`
     width: 100%;
   `}
 `;
+
+export const HomeCarList = styled.div`
+${()=>css`
+    margin-top: 25px;
+    padding-bottom: 25px;
+`}
+`
+

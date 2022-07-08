@@ -1,6 +1,8 @@
-import React from 'react'
-import * as S from './style'
 import ModalCreate from '../../components/ModalCreate'
+import * as S from './style'
+
+
+
 const CreateCar = () => {
   return (
     <S.createCar>
