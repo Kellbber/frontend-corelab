@@ -3,7 +3,7 @@ import { CardStyle } from "./style";
 
 export function CardCar(props: {car: Car}){
     return(
-        <CardStyle>
+        <CardStyle cardColor={props.car.color}>
             <h2>{props.car.name}</h2>
             <span>{props.car.description}</span>
         </CardStyle>

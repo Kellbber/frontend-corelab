@@ -23,10 +23,8 @@ export const HomeContent = styled.main`
   `}
 `;
 export const HomeContentSearch = styled.div`
-  ${() => css`
-    width: 100%;
-    display: flex;
-  `}
+  width: 100%;
+  display: flex;
 `;
 export const HomeSearch = styled.div`
   ${({ theme }) => css`
@@ -59,37 +57,58 @@ export const HomeSearch = styled.div`
     }
   `}
 `;
-export const HomeEqualizer = styled.div`
-  ${() => css`
-    display: flex;
-    align-self: flex-start;
-    margin-top: 2.5rem;
-    margin-right: 0.5rem;
+export const HomeEqualizer = styled.button`
+  display: flex;
+  align-self: flex-start;
+  margin-top: 2.5rem;
+  margin-right: 0.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 
-    img {
-      background: url(${equalizer});
-      background-size: cover;
-      padding: 0.5rem;
-      margin-left: 0.5rem;
-    }
-  `}
+  img {
+    background: url(${equalizer});
+    background-size: cover;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
 `;
-export const Modal = styled.div`
-
-`
+export const Modal = styled.div``;
 export const HomeButton = styled.div`
-  ${() => css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  `}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;
 
 export const HomeCarList = styled.div`
-${()=>css`
-    margin-top: 25px;
-    padding-bottom: 25px;
+width: 100%;
+  margin-top: 25px;
+  padding-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+align-items: center;
+
+`;
+
+export const HomeFilterModal = styled.form`
+${({theme})=>css`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  select{
+    width: 20%;
+    outline: none;
+    background-color: ${theme.colors.primaryColor};
+    border-radius: 2rem;
+
+  }
+
+
 `}
 `
-

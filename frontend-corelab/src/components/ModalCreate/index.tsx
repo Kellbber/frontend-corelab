@@ -11,10 +11,9 @@ const ModalCreate = () => {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const newCar: Car = {
-      id: uuidv4(),
       name: event.currentTarget.Name.value,
-      year: event.currentTarget.year.value,
-      price: event.currentTarget.price.value,
+      year: parseInt(event.currentTarget.year.value),
+      price: parseFloat(event.currentTarget.price.value),
       color: event.currentTarget.color.value,
       brand: event.currentTarget.brand.value,
       license: event.currentTarget.license.value,

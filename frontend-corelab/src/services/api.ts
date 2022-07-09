@@ -1,8 +1,9 @@
 import axios from "axios";
+import { url } from "inspector";
 import { Car } from "../types/Car-type";
 
 axios.defaults.baseURL = "http://localhost:3333";
-axios.defaults.headers.post["content-type"] = "aplication/json";
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const carsApi = {
   getCars: async () => {
@@ -14,19 +15,10 @@ export const carsApi = {
     }
   },
   postCar: async (newCar: Car) => {
+    console.log(newCar)
     try {
-      const req = await axios.post("/car", {
-        data: {
-          name: newCar.name,
-          year: newCar.year,
-          price: newCar.price,
-          brand: newCar.brand,
-          color: newCar.color,
-          description: newCar.description,
-          license: newCar.license
-        },
-      });
-      return req.data;
+      const req = await axios.post("/car", newCar);
+      return req;
     } catch (err) {
       alert(err);
     }

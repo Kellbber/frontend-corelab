@@ -1,16 +1,21 @@
 
 import styled, {css} from "styled-components";
-export const CardStyle = styled.section`
-${({theme})=>css`
+
+type cardStyle = {
+  cardColor: string
+}
+
+export const CardStyle = styled.section<cardStyle>`
+${({theme, cardColor})=>css`
 
 display: flex;
-  width: 50%;
-  height: 30%;
+  width: 30%;
+  height: 40%;
   align-items: center;
   padding: 1.5rem;
   justify-content: center;
   flex-direction: column;
-  background-color: gray;
+  background-color: ${cardColor};
   margin: 10px;
   border-radius: 15px;
   color: ${theme.colors.primaryColor} ;
