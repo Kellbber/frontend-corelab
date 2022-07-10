@@ -1,14 +1,14 @@
-import AddButton from "../../components/AddButton";
-import * as S from "./style";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Car } from "../../types/Car-type";
-import { carsApi } from "../../services/api";
-import { CardCar } from "../../components/CardCar";
-import { Filter } from "../../types/Filter-type";
 import Modal from "react-modal";
-import internal from "stream";
+import { useNavigate } from "react-router-dom";
+import AddButton from "../../components/AddButton";
+import { CardCar } from "../../components/CardCar";
+import FilterButton from "../../components/FilterButton";
 import SaveButton from "../../components/SaveButton";
+import { carsApi } from "../../services/api";
+import { Car } from "../../types/Car-type";
+import { Filter } from "../../types/Filter-type";
+import * as S from "./style";
 const customStyles = {
   content: {
     top: "50%",
@@ -41,7 +41,7 @@ const Home = () => {
   const [search, setSearch] = useState<string>("");
 
   const [cars, setCars] = useState<Car[]>([]);
-
+  const [controlRefetch, setControlRefetch]=useState<boolean>(false);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
   function openModal() {
@@ -70,7 +70,11 @@ const Home = () => {
   };
 
   async function getCars() {
+    setControlRefetch(false);
     const carList = await carsApi.getCars();
+    console.log(carList)
+    setCars(carList);
+    console.log(cars)
     carList.map((car: Car) => {
       if (!filter.brand.includes(car.brand)) {
         const newBrands = filter.brand;
@@ -97,12 +101,16 @@ const Home = () => {
         });
       }
     });
-    setCars(carList);
+   
   }
 
   useEffect(() => {
     getCars();
-  }, []);
+    
+
+  }, [controlRefetch]);
+console.log(cars)
+console.log(controlRefetch)
   return (
     <S.Home>
       <S.HomeContent>
@@ -133,7 +141,7 @@ const Home = () => {
               if (car.color.includes(filterValues.cor)) {
                 return car;
               }
-              if (String(car.year)==filterValues.ano) {
+              if (String(car.year) == filterValues.ano) {
                 return car;
               }
             })
@@ -161,14 +169,28 @@ const Home = () => {
               }
             })
             .map((car) => {
-              return <CardCar car={car} key={car.id} />;
+              return <CardCar car={car} setControl={setControlRefetch} key={car.id} />;
             })}
         </S.HomeCarList>
+
+        <FilterButton
+          onClick={() => {
+            setFilterValues({
+              marca: "",
+              cor: "",
+              ano: "",
+              precMin: "",
+              precMax: "",
+            });
+          }}
+        >
+          Limpar Filtros
+        </FilterButton>
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
         >
           <button onClick={closeModal}>X</button>
           <S.HomeFilterModal onSubmit={handleSubmit}>
@@ -176,7 +198,7 @@ const Home = () => {
               <label htmlFor="marca">Marca:</label>
               <select
                 defaultValue={
-                  filterValues.marca!== "" ? filterValues.marca : "default"
+                  filterValues.marca !== "" ? filterValues.marca : "default"
                 }
                 name="marca"
                 id="marca"
@@ -222,21 +244,9 @@ const Home = () => {
               <input type="number" name="precMax" id="precMax"></input>
             </div>
             <SaveButton type="submit" />
-
-
           </S.HomeFilterModal>
         </Modal>
-        <button onClick={()=>{
-              setFilterValues({
-                marca: "",
-                cor: "",
-                ano: "",
-                precMin: "",
-                precMax: "",
-              })
-            }}>Limpar Filtros</button>
       </S.HomeContent>
-      
     </S.Home>
   );
 };

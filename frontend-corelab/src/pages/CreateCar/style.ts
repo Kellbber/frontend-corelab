@@ -2,16 +2,18 @@ import styled, { css } from "styled-components";
 
 export const createCar = styled.section`
 ${({theme})=>css`
-background-color: ${theme.colors.textColor};
+
 justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 `}
 `
 export const createCarContent = styled.main`
   ${() => css`
     display: flex;
-    width: 100vw;
+    min-height: 100%;
+    min-width:100%;
+
 
     align-items: center;
     flex-direction: column;

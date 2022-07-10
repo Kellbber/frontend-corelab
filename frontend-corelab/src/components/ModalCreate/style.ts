@@ -10,10 +10,9 @@ export const BoxModal = styled.section`
   ${({ theme }) => css`
     background: ${theme.colors.primaryColor};
     width: 50%;
-    height: 20%;
-    padding: 10px 20px 35px 20px;
-    margin: 20px;
-    border-radius: 8px;
+    padding: 0 .2rem 1rem .2rem;
+    margin: .2rem;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
 
@@ -25,11 +24,11 @@ export const BoxModal = styled.section`
 export const BoxModalForm1 = styled.form<ColorInput>`
   display: flex;
   align-items: center;
-  margin-top: 2rem;
-  width: 80%;
+  margin-top: .1rem;
+  width: 60%;
   flex-direction: column;
   background-color: ${theme.colors.shadowColor};
-  padding: 1.5rem;
+  padding: 1rem;
 
   input {
     border-radius: 2rem;
@@ -47,6 +46,14 @@ export const BoxModalForm1 = styled.form<ColorInput>`
     margin-bottom: 0.5rem;
     font-family: ${theme.constants.bodyFontFamily};
     font-size: 0.8rem;
+  }
+  select{
+    width: 105%;
+    padding: .5rem;
+    border-radius: 2rem;
+    font-family: ${theme.constants.bodyFontFamily};
+   margin-bottom: 1rem;
+    border: 2px solid black;
   }
 `;
 

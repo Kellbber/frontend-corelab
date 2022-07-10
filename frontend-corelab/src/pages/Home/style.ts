@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import search from "../../assets/icons/search.png";
 import equalizer from "../../assets/icons/equalizer.png";
+import edit from '../../assets/icons/edit.png'
 
 export const Home = styled.section`
   ${({ theme }) => css`
@@ -73,7 +74,6 @@ export const HomeEqualizer = styled.button`
     margin-left: 0.5rem;
   }
 `;
-export const Modal = styled.div``;
 export const HomeButton = styled.div`
   display: flex;
   align-items: center;
@@ -82,33 +82,30 @@ export const HomeButton = styled.div`
 `;
 
 export const HomeCarList = styled.div`
-width: 100%;
+  width: 100%;
   margin-top: 25px;
   padding-bottom: 25px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-align-items: center;
-
+  align-items: center;
 `;
 
 export const HomeFilterModal = styled.form`
-${({theme})=>css`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  ${({ theme }) => css`
+    display: flex;
+    width: 100%;
 
-  select{
-    width: 20%;
-    outline: none;
-    background-color: ${theme.colors.primaryColor};
-    border-radius: 2rem;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
-  }
+    select {
+      width: 20%;
+      outline: none;
+      background-color: ${theme.colors.primaryColor};
+      border-radius: 2rem;
+    }
+  `}
+`;
 
-
-`}
-`

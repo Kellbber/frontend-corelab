@@ -1,5 +1,4 @@
 import axios from "axios";
-import { url } from "inspector";
 import { Car } from "../types/Car-type";
 
 axios.defaults.baseURL = "http://localhost:3333";
@@ -15,7 +14,6 @@ export const carsApi = {
     }
   },
   postCar: async (newCar: Car) => {
-    console.log(newCar)
     try {
       const req = await axios.post("/car", newCar);
       return req;
@@ -23,4 +21,24 @@ export const carsApi = {
       alert(err);
     }
   },
+
+  deleteCar: async(id: string)=>{
+    try{
+      const req = await axios.delete(`/car/${id}`)
+      return req
+      }catch(err){
+        alert(err)
+      }
+  },
+
+  favoriteCar: async(car:Car)=>{
+    try{
+      const req = await axios.patch(`/car/${car.id}`, {
+        isFavorite: car.isFavorite? false : true
+      })
+      return req;
+    }catch (error){
+      alert(error)
+    }
+  }
 };
