@@ -53,7 +53,7 @@ const Home = () => {
   }
 
   function goToAdd() {
-    navigate("/create");
+    navigate("/form");
   }
 
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -72,9 +72,9 @@ const Home = () => {
   async function getCars() {
     setControlRefetch(false);
     const carList = await carsApi.getCars();
-    console.log(carList)
+
     setCars(carList);
-    console.log(cars)
+
     carList.map((car: Car) => {
       if (!filter.brand.includes(car.brand)) {
         const newBrands = filter.brand;
@@ -109,8 +109,8 @@ const Home = () => {
     
 
   }, [controlRefetch]);
-console.log(cars)
-console.log(controlRefetch)
+
+
   return (
     <S.Home>
       <S.HomeContent>

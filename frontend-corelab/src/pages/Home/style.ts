@@ -83,8 +83,8 @@ export const HomeButton = styled.div`
 
 export const HomeCarList = styled.div`
   width: 100%;
-  margin-top: 25px;
-  padding-bottom: 25px;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

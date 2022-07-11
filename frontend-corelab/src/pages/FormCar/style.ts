@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const createCar = styled.section`
+export const formCar = styled.section`
 ${({theme})=>css`
 
 justify-content: center;
@@ -8,7 +8,7 @@ justify-content: center;
     height: 100%;
 `}
 `
-export const createCarContent = styled.main`
+export const formCarContent = styled.main`
   ${() => css`
     display: flex;
     min-height: 100%;

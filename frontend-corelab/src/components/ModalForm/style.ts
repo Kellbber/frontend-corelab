@@ -10,7 +10,7 @@ export const BoxModal = styled.section`
   ${({ theme }) => css`
     background: ${theme.colors.primaryColor};
     width: 50%;
-    padding: 0 .2rem 1rem .2rem;
+  
     margin: .2rem;
     border-radius: 1rem;
     display: flex;

@@ -1,5 +1,6 @@
 export enum RoutePath{
     HOME = '/',
-    CREATE = '/create',
-    UPDATE = '/update'
+    FORM = '/form',
+    UPDATE = '/update/:id'
+
 }

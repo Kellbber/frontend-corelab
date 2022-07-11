@@ -7,7 +7,7 @@ body, html{
   height: 100%;
   background-color: #00000090;
   overflow-x: hidden;
-  overflow-y: hidden;
+overflow-y: hidden;
 }
 #root{
   min-width: 100%;

@@ -9,8 +9,8 @@ export const CardStyle = styled.section<cardStyle>`
 ${({theme, cardColor})=>css`
 
 display: flex;
-  width: 30%;
-  height: 45%;
+  min-width: 30%;
+  min-height: 35%;
   align-items: center;
   padding: 1.5rem;
   justify-content: center;

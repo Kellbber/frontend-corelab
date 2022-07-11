@@ -9,7 +9,7 @@ import { carsApi } from "../../services/api";
 export function CardCar(props: {car: Car, setControl:Dispatch<SetStateAction<boolean>>}){
     let navigate = useNavigate();
     function goToEdit(){
-        navigate('/update')
+        navigate(`/update/${props.car.id}`)
     }
    async function deleteCar(){
         try{
@@ -28,14 +28,16 @@ export function CardCar(props: {car: Car, setControl:Dispatch<SetStateAction<boo
             alert(error)
         }
     }
+
+
     return(
 
 
         <CardStyle cardColor={props.car.color}>
         <CardIcons >
-        <button onClick={goToEdit}><AiOutlineEdit size={25} color="black"/></button>
-        <button onClick={()=>deleteCar()}><AiFillDelete size={25} color="black"/></button>
-        <button onClick={()=>FavoriteCar()}>{props.car.isFavorite?<AiFillHeart size={25} color="red"/>:<AiOutlineHeart color="red" size={25}/>}</button>
+        <button onClick={goToEdit}><AiOutlineEdit size={30} color="black"/></button>
+        <button onClick={()=>deleteCar()}><AiFillDelete size={30} color="black"/></button>
+        <button onClick={()=>FavoriteCar()}>{props.car.isFavorite?<AiFillHeart size={30} color="red"/>:<AiOutlineHeart color="red" size={30}/>}</button>
         </CardIcons>
 
             <h2>{props.car.name}</h2>
