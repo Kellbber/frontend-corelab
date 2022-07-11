@@ -12,7 +12,7 @@ display: flex;
   min-width: 30%;
   min-height: 35%;
   align-items: center;
-  padding: 1.5rem;
+  padding: .5rem;
   justify-content: center;
   flex-direction: column;
   background-color: ${cardColor};

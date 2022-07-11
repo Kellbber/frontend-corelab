@@ -18,10 +18,21 @@ export const BoxModal = styled.section`
 
     align-items: center;
     color: ${theme.colors.textColor};
+    @media (max-width: 300px)
+{
+  width: 90%;
+  height: 90%;
+}
+@media (max-width: 1000px)
+{
+  width: 80%;
+  height: 88%;
+}
   `}
 `;
 
 export const BoxModalForm1 = styled.form<ColorInput>`
+
   display: flex;
   align-items: center;
   margin-top: .1rem;
@@ -55,6 +66,16 @@ export const BoxModalForm1 = styled.form<ColorInput>`
    margin-bottom: 1rem;
     border: 2px solid black;
   }
+  @media (max-width: 300px)
+{
+  width: 80%;
+  height: 88%;
+}
+@media (max-width: 1000px)
+{
+  width: 80%;
+  height: 88%;
+}
 `;
 
 export const modalCreateBack = styled.div`

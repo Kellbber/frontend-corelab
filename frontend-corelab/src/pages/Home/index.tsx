@@ -9,6 +9,8 @@ import { carsApi } from "../../services/api";
 import { Car } from "../../types/Car-type";
 import { Filter } from "../../types/Filter-type";
 import * as S from "./style";
+import { AiOutlineRollback } from "react-icons/ai";
+import { ImEqualizer } from "react-icons/im";
 const customStyles = {
   content: {
     top: "50%",
@@ -41,7 +43,7 @@ const Home = () => {
   const [search, setSearch] = useState<string>("");
 
   const [cars, setCars] = useState<Car[]>([]);
-  const [controlRefetch, setControlRefetch]=useState<boolean>(false);
+  const [controlRefetch, setControlRefetch] = useState<boolean>(false);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
   function openModal() {
@@ -101,15 +103,11 @@ const Home = () => {
         });
       }
     });
-   
   }
 
   useEffect(() => {
     getCars();
-    
-
   }, [controlRefetch]);
-
 
   return (
     <S.Home>
@@ -126,12 +124,25 @@ const Home = () => {
             />
           </S.HomeSearch>
           <S.HomeEqualizer onClick={openModal}>
-            <img />
+           <ImEqualizer size={20} color="black"/>
           </S.HomeEqualizer>
         </S.HomeContentSearch>
         <S.HomeButton onClick={goToAdd}>
           <AddButton />
         </S.HomeButton>
+        <FilterButton
+          onClick={() => {
+            setFilterValues({
+              marca: "",
+              cor: "",
+              ano: "",
+              precMin: "",
+              precMax: "",
+            });
+          }}
+        >
+          Limpar Filtros
+        </FilterButton>
         <S.HomeCarList>
           {cars
             .filter((car) => {
@@ -142,6 +153,12 @@ const Home = () => {
                 return car;
               }
               if (String(car.year) == filterValues.ano) {
+                return car;
+              }
+              if (
+                String(car.price) <= filterValues.precMax &&
+                String(car.price) <= filterValues.precMax
+              ) {
                 return car;
               }
             })
@@ -169,30 +186,27 @@ const Home = () => {
               }
             })
             .map((car) => {
-              return <CardCar car={car} setControl={setControlRefetch} key={car.id} />;
+              return (
+                <CardCar
+                  car={car}
+                  setControl={setControlRefetch}
+                  key={car.id}
+                />
+              );
             })}
         </S.HomeCarList>
-
-        <FilterButton
-          onClick={() => {
-            setFilterValues({
-              marca: "",
-              cor: "",
-              ano: "",
-              precMin: "",
-              precMax: "",
-            });
-          }}
-        >
-          Limpar Filtros
-        </FilterButton>
 
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           style={customStyles}
         >
-          <button onClick={closeModal}>X</button>
+          <S.CloseButton>
+            <button onClick={closeModal}>
+              <AiOutlineRollback size={25} />
+            </button>
+          </S.CloseButton>
+
           <S.HomeFilterModal onSubmit={handleSubmit}>
             <div>
               <label htmlFor="marca">Marca:</label>

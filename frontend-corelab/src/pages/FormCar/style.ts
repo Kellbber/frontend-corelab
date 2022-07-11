@@ -1,21 +1,20 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const formCar = styled.section`
-${({theme})=>css`
 
-justify-content: center;
-    width: 100%;
-    height: 100%;
-`}
-`
+  display: flex;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+`;
+
 export const formCarContent = styled.main`
-  ${() => css`
+margin-top: 1rem;
     display: flex;
-    min-height: 100%;
-    min-width:100%;
-
+    min-height: 100vh;
+    min-width: 100vw;
 
     align-items: center;
     flex-direction: column;
-  `}
+
 `;

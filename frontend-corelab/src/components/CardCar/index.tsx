@@ -35,8 +35,8 @@ export function CardCar(props: {car: Car, setControl:Dispatch<SetStateAction<boo
 
         <CardStyle cardColor={props.car.color}>
         <CardIcons >
-        <button onClick={goToEdit}><AiOutlineEdit size={30} color="black"/></button>
-        <button onClick={()=>deleteCar()}><AiFillDelete size={30} color="black"/></button>
+        <button onClick={goToEdit}><AiOutlineEdit size={30} color="white"/></button>
+        <button onClick={()=>deleteCar()}><AiFillDelete size={30} color="white"/></button>
         <button onClick={()=>FavoriteCar()}>{props.car.isFavorite?<AiFillHeart size={30} color="red"/>:<AiOutlineHeart color="red" size={30}/>}</button>
         </CardIcons>
 
